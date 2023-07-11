@@ -15,12 +15,7 @@
         components: {
             LearningResource,
         },
-        props: {
-            resources: {
-                type: Object,
-                required: true,
-            }
-        },
+        inject: ['resources'],
     };
 
 </script>
