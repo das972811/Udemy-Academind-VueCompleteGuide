@@ -1,15 +1,13 @@
 <template>
-    <teleport to="body">
-        <base-error-alert v-if="inputIsInvalid" @close="confirmError" title="Invalid Input">
-            <template #default>
-                <p>Unfortunately, at least one input is invalid.</p>
-                <p>Please check all inputs and make sure you enter at least a few characters into each input field.</p>
-            </template>
-            <template v-slot:actions>
-                <base-button v-on:click="confirmError">Okay</base-button>
-            </template>
-        </base-error-alert>
-    </teleport>
+    <base-error-alert v-if="inputIsInvalid" @close="confirmError" title="Invalid Input">
+        <template #default>
+            <p>Unfortunately, at least one input is invalid.</p>
+            <p>Please check all inputs and make sure you enter at least a few characters into each input field.</p>
+        </template>
+        <template v-slot:actions>
+            <base-button v-on:click="confirmError">Okay</base-button>
+        </template>
+    </base-error-alert>
     <base-card>
         <form @submit.prevent="submitData">
             <div class="form-control">

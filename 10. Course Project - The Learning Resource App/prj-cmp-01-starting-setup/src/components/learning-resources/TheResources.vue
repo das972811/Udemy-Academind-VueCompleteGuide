@@ -8,7 +8,6 @@
     </keep-alive>
 </template>
 <script>
-    // import StoredResources from './StoredResources.vue';
     import StoredResources from './StoredResources.vue';
     import AddResource from './AddResource.vue';
 
@@ -48,6 +47,7 @@
             return {
                 resources: this.storedResources,
                 addResource: this.addResource,
+                deleteResource: this.removeResource,
             };
         },
         methods: {
@@ -64,6 +64,11 @@
 
                 this.storedResources.unshift(newResource);
                 this.selectedTab = 'stored-resources';
+            },
+            removeResource(resId)
+            {
+                const resIndex = this.storedResources.findIndex(res => res.id === resId);
+                this.storedResources.splice(resIndex, 1);
             }
         },
     };
