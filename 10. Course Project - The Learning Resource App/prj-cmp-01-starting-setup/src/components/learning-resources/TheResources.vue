@@ -1,7 +1,7 @@
 <template>
     <base-card>
-        <base-button @click="setSelectedTab('stored-resources')">Stored Resources</base-button>
-        <base-button v-on:click="setSelectedTab('add-resources')">Add Resource</base-button>
+        <base-button @click="setSelectedTab('stored-resources')" :mode="storedResButtonMode">Stored Resources</base-button>
+        <base-button v-on:click="setSelectedTab('add-resource')" :mode="addResButtonMode">Add Resource</base-button>
     </base-card>
     <component :is="selectedTab"></component>
 </template>
@@ -14,6 +14,14 @@
         components: {
             StoredResources,
             AddResource,
+        },
+        computed: {
+            storedResButtonMode() {
+                return this.selectedTab === 'stored-resources' ? null : 'flat'
+            },
+            addResButtonMode() {
+                return this.selectedTab === 'add-resource' ? null : 'flat';
+            },
         },
         data() {
             return {
