@@ -9,7 +9,7 @@
     </ul>
 </template>
 <script>
-    import LearningResource from './components/LearningResource.vue'
+    import LearningResource from './components/learning-resources/LearningResource.vue'
 
     export default {
         components: {
