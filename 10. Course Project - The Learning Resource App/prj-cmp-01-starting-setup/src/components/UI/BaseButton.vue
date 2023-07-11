@@ -1,5 +1,5 @@
 <template>
-    <button :type="type" :class="mode">
+    <button :class="mode">
         <slot></slot>
     </button>
 </template>
@@ -8,10 +8,7 @@
         props: {
             'mode': {
                 type: String,
-            },
-            'type': {
-                type: String,
-            },
+            }
         }
     };
 </script>
