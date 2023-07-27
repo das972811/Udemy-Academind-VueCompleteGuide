@@ -1,4 +1,9 @@
 <template>
+  <router-view v-slot="slotProps">
+      <transition name="fade-button" mode="out-in">
+        <component :is="slotProps.Component"></component>
+      </transition>
+    </router-view>
   <div class="container">
     <user-list></user-list>
   </div>
@@ -227,6 +232,19 @@ button:active {
 .fade-button-enter-to,
 .fade-button-leave-from {
   opacity: 1;
+}
+
+.route-enter-from,
+.route-enter-active {
+  animation: slide-scale 0.4s ease-out;
+}
+
+.route-enter-to {
+
+}
+
+.route-leave-active {
+  animation: slide-scale 0.4s ease-in;
 }
 
 @keyframes slide-scale {
